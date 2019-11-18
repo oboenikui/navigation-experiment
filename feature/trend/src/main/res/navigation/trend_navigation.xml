@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/trend_navigation"
+    app:startDestination="@id/nav_trend_fragment">
+    <fragment
+        android:id="@+id/nav_trend_fragment"
+        android:name="com.oboenikui.navigationsample.feature.trend.TrendFragment">
+        <action
+            android:id="@+id/action_trend_to_detail"
+            app:destination="@+id/nav_detail">
+
+            <argument
+                android:name="content"
+                app:argType="com.oboenikui.navigationsample.domain.model.Content"
+                app:nullable="false" />
+        </action>
+    </fragment>
+
+    <include app:graph="@navigation/detail_navigation" />
+</navigation>

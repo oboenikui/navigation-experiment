@@ -1,0 +1,17 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs'
+apply from: "$rootDir/gradle/commonFrontDep.gradle"
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 28
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}

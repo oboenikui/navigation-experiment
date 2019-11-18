@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/nav_home">
+    <action
+        android:id="@+id/action_launch_web_activity"
+        app:destination="@+id/nav_web_activity" />
+
+    <activity
+        android:id="@+id/nav_web_activity"
+        android:name="com.oboenikui.navigationsample.WebActivity">
+        <argument
+            android:name="url"
+            app:argType="string"
+            app:nullable="false" />
+    </activity>
+
+    <include app:graph="@navigation/home_navigation" />
+    <include app:graph="@navigation/trend_navigation" />
+    <action
+        android:id="@+id/nav_trend"
+        app:destination="@id/trend_navigation"
+        app:launchSingleTop="true" />
+</navigation>

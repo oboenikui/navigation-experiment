@@ -1,0 +1,5 @@
+rootProject.name = 'Navigation Sample'
+
+include ':feature:home', ':feature:trend', ':feature:account', ':feature:detail', ':app'
+
+include ':common'

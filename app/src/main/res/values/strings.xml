@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Navigation Sample</string>
+    <string name="label_home">Home</string>
+    <string name="label_search">Search</string>
+    <string name="label_trend">Trend</string>
+    <string name="label_account">Account</string>
+</resources>
