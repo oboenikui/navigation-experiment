@@ -4,17 +4,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.oboenikui.navigationsample.domain.model.Content
 import com.oboenikui.navigationsample.domain.model.Trend
-import com.oboenikui.navigationsample.navigator.CommonNavigator
 import javax.inject.Inject
 
 class TrendAdapter @Inject constructor(
-    private val trends: List<Trend>,
-    private val navController: NavController
+    private val trends: List<Trend>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    var onContentItemClick: ((Content) -> Unit)? = null
 
     private val viewTypes by lazy {
         trends.withIndex().flatMap { (index, trend) ->
@@ -45,7 +44,7 @@ class TrendAdapter @Inject constructor(
                     parent,
                     false
                 )
-            )
+            ) { onContentItemClick?.invoke(it) }
             else -> error("Unexpected view type")
         }
     }
@@ -54,7 +53,7 @@ class TrendAdapter @Inject constructor(
         val (trendIndex, contentIndex) = viewTypes[position].index
         when (holder) {
             is TitleViewHolder -> holder.bind(trends[trendIndex].name)
-            is ContentViewHolder -> holder.bind(trends[trendIndex].contents[contentIndex], navController)
+            is ContentViewHolder -> holder.bind(trends[trendIndex].contents[contentIndex])
         }
     }
 
@@ -79,7 +78,8 @@ class TitleViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     }
 }
 
-class ContentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class ContentViewHolder(view: View, private val onContentItemClick: (Content) -> Unit) :
+    RecyclerView.ViewHolder(view) {
     private val bodyView by lazy {
         itemView.findViewById<TextView>(R.id.bodyView)
     }
@@ -87,13 +87,12 @@ class ContentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         itemView.findViewById<TextView>(R.id.accountNameView)
     }
 
-    fun bind(content: Content, navController: NavController) {
+    fun bind(content: Content) {
         accountNameView.text = content.account.name
         bodyView.text = content.body
 
-        // TODO change to better solution
         itemView.setOnClickListener {
-            navController.navigate(TrendFragmentDirections.actionTrendToDetail(content))
+            onContentItemClick(content)
         }
     }
 }

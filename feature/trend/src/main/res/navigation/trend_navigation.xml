@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/trend_navigation"
+    android:id="@+id/nav_trend"
     app:startDestination="@id/nav_trend_fragment">
     <fragment
         android:id="@+id/nav_trend_fragment"
@@ -16,6 +16,4 @@
                 app:nullable="false" />
         </action>
     </fragment>
-
-    <include app:graph="@navigation/detail_navigation" />
 </navigation>

@@ -4,7 +4,6 @@
     android:id="@+id/nav_detail"
     app:startDestination="@+id/nav_detail_fragment">
 
-
     <fragment
         android:id="@+id/nav_detail_fragment"
         android:name="com.oboenikui.navigationsample.feature.detail.DetailFragment"
@@ -14,5 +13,14 @@
             android:name="content"
             app:argType="com.oboenikui.navigationsample.domain.model.Content"
             app:nullable="false" />
+
+        <action
+            android:id="@+id/action_launch_web_activity"
+            app:destination="@+id/nav_web_activity">
+            <argument
+                android:name="url"
+                app:argType="string"
+                app:nullable="false" />
+        </action>
     </fragment>
 </navigation>

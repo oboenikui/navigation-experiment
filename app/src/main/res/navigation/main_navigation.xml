@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_navigation"
     app:startDestination="@id/nav_home">
-    <action
-        android:id="@+id/action_launch_web_activity"
-        app:destination="@+id/nav_web_activity" />
+<!--    You can also define as a Global Action here   -->
+<!--    <action-->
+<!--        android:id="@+id/action_launch_web_activity"-->
+<!--        app:destination="@+id/nav_web_activity" />-->
 
     <activity
         android:id="@+id/nav_web_activity"
@@ -18,8 +19,5 @@
 
     <include app:graph="@navigation/home_navigation" />
     <include app:graph="@navigation/trend_navigation" />
-    <action
-        android:id="@+id/nav_trend"
-        app:destination="@id/trend_navigation"
-        app:launchSingleTop="true" />
+    <include app:graph="@navigation/detail_navigation" />
 </navigation>
