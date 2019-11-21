@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_login"
+    app:startDestination="@id/nav_entry_fragment">
+    <fragment
+        android:id="@+id/nav_entry_fragment"
+        android:name="com.oboenikui.navigationsample.feature.login.EntryFragment">
+        <action
+            android:id="@+id/action_entry_to_login"
+            app:destination="@id/nav_login_fragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_login_fragment"
+        android:name="com.oboenikui.navigationsample.feature.login.LoginFragment">
+        <action
+            android:id="@+id/action_login_to_main"
+            app:destination="@+id/main_navigation"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popUpTo="@+id/main_navigation" />
+    </fragment>
+</navigation>

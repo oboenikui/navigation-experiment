@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_navigation"
     app:startDestination="@id/nav_home">
-<!--    You can also define as a Global Action here   -->
-<!--    <action-->
-<!--        android:id="@+id/action_launch_web_activity"-->
-<!--        app:destination="@+id/nav_web_activity" />-->
+    <!--    You can also define as a Global Action here   -->
+    <!--    <action-->
+    <!--        android:id="@+id/action_launch_web_activity"-->
+    <!--        app:destination="@+id/nav_web_activity" />-->
 
     <activity
         android:id="@+id/nav_web_activity"
@@ -17,7 +17,18 @@
             app:nullable="false" />
     </activity>
 
+    <action
+        android:id="@+id/action_login"
+        app:destination="@+id/nav_login"
+        app:enterAnim="@anim/fragment_close_enter"
+        app:exitAnim="@anim/fragment_close_exit"
+        app:popUpTo="@id/main_navigation"
+        app:popUpToInclusive="true"
+        app:launchSingleTop="true"/>
+
     <include app:graph="@navigation/home_navigation" />
     <include app:graph="@navigation/trend_navigation" />
+    <include app:graph="@navigation/account_navigation" />
     <include app:graph="@navigation/detail_navigation" />
+    <include app:graph="@navigation/login_navigation" />
 </navigation>

@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_home"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_home"
     app:startDestination="@id/nav_home_fragment">
 
     <fragment
         android:id="@+id/nav_home_fragment"
         android:name="com.oboenikui.navigationsample.feature.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_home_to_detail"
+            app:destination="@+id/nav_detail"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit">
+            <argument
+                android:name="content"
+                app:argType="com.oboenikui.navigationsample.domain.model.Content"
+                app:nullable="false" />
+        </action>
+    </fragment>
 </navigation>

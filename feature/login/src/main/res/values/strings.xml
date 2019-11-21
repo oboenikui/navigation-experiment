@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msg_entry">This app is created to check the behavior of Navigation Component.</string>
+    <string name="label_app_title">Navigation Sample App</string>
+    <string name="label_continue">Continue</string>
+    <string name="label_id">ID</string>
+    <string name="label_login">Login</string>
+    <string name="label_password">Password</string>
+    <string name="msg_enter_id_password">Enter your ID and password</string>
+</resources>

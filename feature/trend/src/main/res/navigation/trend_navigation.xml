@@ -8,7 +8,12 @@
         android:name="com.oboenikui.navigationsample.feature.trend.TrendFragment">
         <action
             android:id="@+id/action_trend_to_detail"
-            app:destination="@+id/nav_detail">
+            app:destination="@+id/nav_detail"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit">
 
             <argument
                 android:name="content"
